@@ -1,0 +1,23 @@
+Handling FCS files into Renvironment
+
+1. Funcion para convert archivos FCS a dataframes (opcional): https://rdrr.io/bioc/CytoDx/man/fcs2DF.html
+
+2. Descripción general del flujo de trabajo: https://rstudio-pubs-static.s3.amazonaws.com/817768_fec70ef38efb4da395c8b9b9547e345d.html
+
+3. vídeos (n = 3, al menos) del análisis de FCS en R: https://www.youtube.com/watch?v=2INqQNMNaV0
+Nota: Ver los videos 1, 2 y 3, al menos.
+
+4. scripts tomados del video (probar que funcionen, después de instalar las paqueterías)
+
+#Load a single fcs
+myfile <- "C:/Users/chall/Downloads/FlowRepository_FR-FCM-ZZZU_files/0001.FCS"
+fcsfile <- flowCore::read.FCS(myfile)
+library(flowCore)
+fcsfile1 <- read.FCS(myfile)
+fcsfile
+
+#Load many fcs files into a flow set
+myfiles <- list.files(path="C:/Users/chall/Downloads/FlowRepository_FR-FCM-ZZZU_files", pattern=".FCS$")
+fs <- flowCore::read.flowSet(myfiles, path="C:/Users/chall/Downloads/FlowRepository_FR-FCM-ZZZU_files/")
+fs
+fs[[1]]
