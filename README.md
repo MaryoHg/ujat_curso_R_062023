@@ -7,8 +7,9 @@ El curso será impartido en línea a través de _Microsoft Teams_, del Lunes 03 
 ## La estructura de este repositorio es la siguiente:
 
 ```bash
-mariohg@mario-2 GitHub % tree ujat_curso_R_062023 
+mariohg@mario-2 GitHub % tree ujat_curso_R_062023                                              
 ujat_curso_R_062023
+├── ACCESOS_MSTEAMS.docx
 ├── Contenido del Curso.docx
 ├── LICENSE
 ├── Poster_promocional-03-07-2023.pdf
@@ -17,8 +18,7 @@ ujat_curso_R_062023
 │   ├── Lecture_01_Introduction_to_R.pptx
 │   ├── Lecture_02_Manejo_base_de_datos.pptx
 │   ├── Lecture_03_Manipulación_bases_de_datos_tidyverse.pptx
-│   ├── Lecture_04_Graficas_con_ggplot2.pptx
-│   └── ~$Lecture_00_Introduction.pptx
+│   └── Lecture_04_Graficas_con_ggplot2.pptx
 ├── README.md
 ├── data
 │   ├── file.csv
