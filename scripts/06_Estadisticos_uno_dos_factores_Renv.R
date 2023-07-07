@@ -25,13 +25,16 @@ library(tidyverse, warn.conflicts = F)
 ## -------------- ##
 ## UN SÓLO FACTOR ##
 ## -------------- ##
+	library(Rmisc)
 	## Estadísticos de una sola variable de respuesta (Sepal.Lenght)
 	## nota: tengo que correr la misma función sobre cada variable medida, por estar en formato wide
+	colnames(df)
 	Rmisc::summarySE(data = df, measurevar = "Sepal.Length", groupvars = c("Species"), na.rm = T) #%>% ggplot() + theme_bw(base_size = 20) + geom_bar(stat = "identity", position = "dodge", aes(x = Species, y = Sepal.Length, fill = Species)) + scale_y_continuous(limits = c(0,10), breaks = seq(0,10,2))+ theme(legend.position = "none", panel.grid = element_blank())
 
 	
 	## Convertir a modo "long", y calcular estadísticas un sólo comando:
 	## Si convierto a modo long, me es más fácil calcular estadísticos y graficar a la vez
+	
 	df_long <- df %>%
 		tidyr::pivot_longer(cols = 1:4, names_to = "variable", values_to = "length")
 	
@@ -44,10 +47,10 @@ library(tidyverse, warn.conflicts = F)
 				 STD = sd (length), # standard deviation calculation
 				 SEM = sd(length)/sqrt(N), # standar error of the mean calculation
 				 .groups = "drop") %>% # ignore package warning
-		dplyr::arrange(variable, Species) %>% #arrange data by "variable" and then by "Species" (alphabetically)
+		# dplyr::arrange(variable, Species) %>% #arrange data by "variable" and then by "Species" (alphabetically)
 		ggplot() + 
 		theme_bw(base_size = 20) + 
-		labs (x = "Perro oso", y = "Saber qué hago aquí", title = "Iris lenght analyses", subtitle = "This is my first plot") +
+		labs (x = "Species", y = "Longitud (cm)", title = "Iris lenght analyses", subtitle = "This is my first plot") +
 		geom_bar(aes(x = Species, y = promedio, fill = variable), 
 			 stat = "identity", 
 			 position = position_dodge(0.9), 
